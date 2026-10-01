@@ -1,0 +1,35 @@
+#  i am using pydroid3 to code
+# intellij would be my preferred ide
+#until im in that setting...
+#i may be missing the proper packages
+#i know im missonf git ignores
+#but i do have an ide theough pydroid3 off the playstore
+
+
+#creating a daily check ins program.  taking in first and last name separately.  mood from 1 to 10.  how many job applications wete comoleted today. how many minutes were spent coding.  and if we read today.
+
+#collecting users name
+fname = input("First Name: ")
+lname = input("Last Name : ")
+name = lname + ", " + fname
+
+#asking for users mood scale, applicatiins completed, and how long one spent codong for the day
+mood_scale = int(input("What is your mood from 1'Worst' to 10'Best': "))
+applied_apps = int(input("How many job applications did you do today: "))
+m_coding = int(input("How many minutes did you spend coding tpday: "))
+
+#determining an output depending on the informatuin given by the user
+out = ""
+
+if mood_scale >=8 and mood_scale < 11:
+	out = out + "Wow, you're happy today! "
+elif mood_scale >=4 and mood_scale <= 7:
+	out = out + "It obviously could be worst or better. Make sure you keep up the good work! "
+elif mood_scale >=1 and mood_scale <=3:
+	out =out + "All it takes is one action! "
+elif mood_scale == 0:
+	out = out + "You've got to keep on moving! "
+else:
+	out = out + "You may need some gemeral help. "
+print()
+print(out)
