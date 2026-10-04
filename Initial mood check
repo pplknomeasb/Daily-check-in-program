@@ -11,15 +11,36 @@
 #collecting users name
 fname = input("First Name: ")
 lname = input("Last Name : ")
-name = lname + ", " + fname
 
-#asking for users mood scale, applicatiins completed, and how long one spent codong for the day
+#asking for users mood scale, applicatiins completed, and how long one spent coding for the day, and how long we spent reading.  Also, practicing spanish.
+
 mood_scale = int(input("What is your mood from 1'Worst' to 10'Best': "))
+#The end ussr could input a number greater than 10 pr less than 0. The while loop will scam to make sure that the number entered is between the two
+while 0 > mood_scale or 10 < mood_scale:
+	if mood_scale < 0:	
+	    mood_scale = int(input("We know there is a plethora of daily pressures that could make you feel like you're below a zero, but please enter a number between 1 being the worst day or a 10 being the best day: "))
+	elif mood_scale > 10:
+	    mood_scale = int(input("You may be feeling far greater than a 10, but please enter a number between 1 being the worst day and or a 10 being the best day: "))
+	    
 applied_apps = int(input("How many job applications did you do today: "))
-m_coding = int(input("How many minutes did you spend coding tpday: "))
+#Checking to see if the user thought doing negative apps is a thing
+while applied_apps < 0:
+	applied_apps = int(input("You cant do negative apps. Its not that bad. How many apps did you do today: "))
+	
+m_coding = int(input("How many minutes did you spend coding today: "))
+#failsafe to make sure a negative number isnt inputted
+while m_coding < 0:
+	m_coding = int(input("Failsafe...how many minutes did you code today: "))
+	
+m_reading = int(input("How many minutes did you spend reading today: "))
+
+spanish = input("Did you practice Spanish today: ")
+#checkin to see if a yes or a no is the result
+while spanish != "no" and spanish != "yes":
+	spanish = input("You can only respond yes or no. Did you practice Spanish today: ")
 
 #determining an output depending on the informatuin given by the user
-out = ""
+out = "Hello, " + fname + " " + lname + "! "
 
 if mood_scale >=8 and mood_scale < 11:
 	out = out + "Wow, you're happy today! "
@@ -32,4 +53,47 @@ elif mood_scale == 0:
 else:
 	out = out + "You may need some gemeral help. "
 print()
+
+#Asking the user to address the number of minutes he or she programmed today.  Using a different technique for an if statement. Using += to concant a string instead of adding to itselt.  @variable += desired_string.  checking values for desired return. desired_int <> @variable <> desired_int.  measures the first int factor to be true or false against the variable. It then checks if the variable is true or dalse against the second int.
+
+if m_coding > 60:
+	out = out + "Well, you did say that you were on a mission. Good job coding over an hour bub. "
+elif m_coding >= 40 and m_coding <= 60:
+	out = out + "Thats an amazing amount of time to put towards programming. Go you bub! "
+elif 30 <= m_coding <= 39:
+	out = out + "You had a solid coding effort day.  Make sure you take notes and recall what you've learned! "
+elif 20 <= m_coding <= 29:
+	out += "I would suggest you try a little harder. See if there is different syntax you can use to accomplish your desired result. "
+elif 10 <= m_coding <= 19:
+	out += "Im not sure whats going on but you can code a little bit more; I have to be honest. "
+elif 1 <= m_coding <= 9:
+	out += "Is your head in the game for coding? If it is, reach harder to learn some more. If not, do some more job apps! "
+else:
+	out += "PYTHON MAN PYTHON!!! "
+	
+#Concants a new part of the string in regard to the number of applications submitted.
+if applied_apps >= 5:
+	out += "You're determined to land a job. "
+elif applied_apps >= 3:
+	out += "Mak sure you follow up with the applications you submitted. "
+elif applied_apps >= 1:
+	out += "Finding quality work takes dedication. "
+else:
+	out += "Make sure you look for work. You cant do this on your own! "
+
+#calculating how long we spent reading today
+
+if m_reading >= 60:
+	out += "More than likely you were reading the bible.  Keep it up...faith is with you!!!"
+elif 40 <= m_reading <= 59:
+	out += "Reading grows your knowledge buddy; dont quit. Having faith will pay off!!!"
+elif 20 <= m_reading <=39:
+	out += "Make sure you pick something else up to read before the day is out okay!"
+elif 0 <= m_reading <= 19:
+	out += "If your head isn't in it the entire way, pray a bit and turn the page!.  Amen. "
+	
+if spanish == "yes":
+	out += "Muy Bien!"
+else:
+	out += "Man you only need to practice for 5 minutes.  Get on that...dang daniel.  Get your head in the game!!!!"
 print(out)
