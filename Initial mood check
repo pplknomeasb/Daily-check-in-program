@@ -14,33 +14,42 @@ lname = input("Last Name : ")
 
 #asking for users mood scale, applicatiins completed, and how long one spent coding for the day, and how long we spent reading.  Also, practicing spanish.
 
-mood_scale = int(input("What is your mood from 1'Worst' to 10'Best': "))
+mood_scale = int(input("What is your mood from 0'Worst' to 10'Best': "))
 #The end ussr could input a number greater than 10 pr less than 0. The while loop will scam to make sure that the number entered is between the two
 while 0 > mood_scale or 10 < mood_scale:
 	if mood_scale < 0:	
 	    mood_scale = int(input("We know there is a plethora of daily pressures that could make you feel like you're below a zero, but please enter a number between 1 being the worst day or a 10 being the best day: "))
 	elif mood_scale > 10:
 	    mood_scale = int(input("You may be feeling far greater than a 10, but please enter a number between 1 being the worst day and or a 10 being the best day: "))
+print("")
 	    
 applied_apps = int(input("How many job applications did you do today: "))
 #Checking to see if the user thought doing negative apps is a thing
 while applied_apps < 0:
 	applied_apps = int(input("You cant do negative apps. Its not that bad. How many apps did you do today: "))
+print("")
 	
 m_coding = int(input("How many minutes did you spend coding today: "))
 #failsafe to make sure a negative number isnt inputted
 while m_coding < 0:
 	m_coding = int(input("Failsafe...how many minutes did you code today: "))
+print("")
 	
-m_reading = int(input("How many minutes did you spend reading today: "))
-
+m_reading = input("Did you read today(yes or no): ")
+#making sure the appropriate answer is given for the reading question
+while m_reading != "yes" and m_reading != "no":
+	m_reading = input("You can only answer with a yes or a no. Did you read today: ")
+print("")
+	
 spanish = input("Did you practice Spanish today: ")
 #checkin to see if a yes or a no is the result
 while spanish != "no" and spanish != "yes":
 	spanish = input("You can only respond yes or no. Did you practice Spanish today: ")
+print("")
 
 #determining an output depending on the informatuin given by the user
 out = "Hello, " + fname + " " + lname + "! "
+print("")
 
 if mood_scale >=8 and mood_scale < 11:
 	out = out + "Wow, you're happy today! "
@@ -83,14 +92,10 @@ else:
 
 #calculating how long we spent reading today
 
-if m_reading >= 60:
+if m_reading == "yes":
 	out += "More than likely you were reading the bible.  Keep it up...faith is with you!!!"
-elif 40 <= m_reading <= 59:
-	out += "Reading grows your knowledge buddy; dont quit. Having faith will pay off!!!"
-elif 20 <= m_reading <=39:
-	out += "Make sure you pick something else up to read before the day is out okay!"
-elif 0 <= m_reading <= 19:
-	out += "If your head isn't in it the entire way, pray a bit and turn the page!.  Amen. "
+elif m_reading == "no":
+	out += "Talk to Jesus"
 	
 if spanish == "yes":
 	out += "Muy Bien!"
