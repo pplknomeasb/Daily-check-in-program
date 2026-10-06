@@ -1,104 +1,37 @@
-#  i am using pydroid3 to code
-# intellij would be my preferred ide
-#until im in that setting...
-#i may be missing the proper packages
-#i know im missonf git ignores
-#but i do have an ide theough pydroid3 off the playstore
+out = ""
+fname = input("What is your First Name: ")
+lname = input("What is your Last Name: ")
+name = fname + (", ") + lname
+print(f"Hello {name}")
+while True:
+    try:
+        mood_scale = int(input("What is your mood from 0 to 10: "))
+
+        if 0 <= mood_scale <= 10:
+            break
+        else:
+            print("Please enter a number from 0 to 10.")
+
+    except ValueError:
+        print("Please enter a whole number, nothing with letters included.")
 
 
-#creating a daily check ins program.  taking in first and last name separately.  mood from 1 to 10.  how many job applications wete comoleted today. how many minutes were spent coding.  and if we read today.
+while True:
+    try:
+        m_reading = int(input("How many minutes did you spend reading today: "))
 
-#collecting users name
-fname = input("First Name: ")
-lname = input("Last Name : ")
+        if m_reading >= 0:
+            break
+        else:
+            print("Please enter 0 or a positive whole number.")
 
-#asking for users mood scale, applicatiins completed, and how long one spent coding for the day, and how long we spent reading.  Also, practicing spanish.
+    except ValueError:
+        print("Please enter a whole number, nothing with letters included.")
+        
+while True:
+    m_coding = input("Did you practice coding today: ").lower()
 
-mood_scale = int(input("What is your mood from 0'Worst' to 10'Best': "))
-#The end ussr could input a number greater than 10 pr less than 0. The while loop will scam to make sure that the number entered is between the two
-while 0 > mood_scale or 10 < mood_scale:
-	if mood_scale < 0:	
-	    mood_scale = int(input("We know there is a plethora of daily pressures that could make you feel like you're below a zero, but please enter a number between 1 being the worst day or a 10 being the best day: "))
-	elif mood_scale > 10:
-	    mood_scale = int(input("You may be feeling far greater than a 10, but please enter a number between 1 being the worst day and or a 10 being the best day: "))
-print("")
-	    
-applied_apps = int(input("How many job applications did you do today: "))
-#Checking to see if the user thought doing negative apps is a thing
-while applied_apps < 0:
-	applied_apps = int(input("You cant do negative apps. Its not that bad. How many apps did you do today: "))
-print("")
-	
-m_coding = int(input("How many minutes did you spend coding today: "))
-#failsafe to make sure a negative number isnt inputted
-while m_coding < 0:
-	m_coding = int(input("Failsafe...how many minutes did you code today: "))
-print("")
-	
-m_reading = input("Did you read today(yes or no): ")
-#making sure the appropriate answer is given for the reading question
-while m_reading != "yes" and m_reading != "no":
-	m_reading = input("You can only answer with a yes or a no. Did you read today: ")
-print("")
-	
-spanish = input("Did you practice Spanish today: ")
-#checkin to see if a yes or a no is the result
-while spanish != "no" and spanish != "yes":
-	spanish = input("You can only respond yes or no. Did you practice Spanish today: ")
-print("")
-
-#determining an output depending on the informatuin given by the user
-out = "Hello, " + fname + " " + lname + "! "
-print("")
-
-if mood_scale >=8 and mood_scale < 11:
-	out = out + "Wow, you're happy today! "
-elif mood_scale >=4 and mood_scale <= 7:
-	out = out + "It obviously could be worst or better. Make sure you keep up the good work! "
-elif mood_scale >=1 and mood_scale <=3:
-	out =out + "All it takes is one action! "
-elif mood_scale == 0:
-	out = out + "You've got to keep on moving! "
-else:
-	out = out + "You may need some gemeral help. "
-print()
-
-#Asking the user to address the number of minutes he or she programmed today.  Using a different technique for an if statement. Using += to concant a string instead of adding to itselt.  @variable += desired_string.  checking values for desired return. desired_int <> @variable <> desired_int.  measures the first int factor to be true or false against the variable. It then checks if the variable is true or dalse against the second int.
-
-if m_coding > 60:
-	out = out + "Well, you did say that you were on a mission. Good job coding over an hour bub. "
-elif m_coding >= 40 and m_coding <= 60:
-	out = out + "Thats an amazing amount of time to put towards programming. Go you bub! "
-elif 30 <= m_coding <= 39:
-	out = out + "You had a solid coding effort day.  Make sure you take notes and recall what you've learned! "
-elif 20 <= m_coding <= 29:
-	out += "I would suggest you try a little harder. See if there is different syntax you can use to accomplish your desired result. "
-elif 10 <= m_coding <= 19:
-	out += "Im not sure whats going on but you can code a little bit more; I have to be honest. "
-elif 1 <= m_coding <= 9:
-	out += "Is your head in the game for coding? If it is, reach harder to learn some more. If not, do some more job apps! "
-else:
-	out += "PYTHON MAN PYTHON!!! "
-	
-#Concants a new part of the string in regard to the number of applications submitted.
-if applied_apps >= 5:
-	out += "You're determined to land a job. "
-elif applied_apps >= 3:
-	out += "Mak sure you follow up with the applications you submitted. "
-elif applied_apps >= 1:
-	out += "Finding quality work takes dedication. "
-else:
-	out += "Make sure you look for work. You cant do this on your own! "
-
-#calculating how long we spent reading today
-
-if m_reading == "yes":
-	out += "More than likely you were reading the bible.  Keep it up...faith is with you!!!"
-elif m_reading == "no":
-	out += "Talk to Jesus"
-	
-if spanish == "yes":
-	out += "Muy Bien!"
-else:
-	out += "Man you only need to practice for 5 minutes.  Get on that...dang daniel.  Get your head in the game!!!!"
-print(out)
+    if m_coding == "yes" or m_coding == "no":
+        break
+    else:
+        print("The question requires a yes or a no response.")
