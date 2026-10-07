@@ -1,11 +1,16 @@
 out = ""
 fname = input("What is your First Name: ")
 lname = input("What is your Last Name: ")
-name = fname + (", ") + lname
-print(f"Hello {name}")
+name = fname + " " + lname
+print()
+print(f"Hello {name}, this program is designed to give you some feel goods while you pass through this storm. Life is unrewarding at times and that doesn't mean you're not accomplishing things.")
+print()
+
+
+#addressing the state of mood the user is in. Practicing exception handling. Building an ongoing output
 while True:
     try:
-        mood_scale = int(input("What is your mood from 0 to 10: "))
+        mood_scale = int(input("What is your mood from 0 to 10(0 being the worst and 10 being the best): "))
 
         if 0 <= mood_scale <= 10:
             break
@@ -15,7 +20,17 @@ while True:
     except ValueError:
         print("Please enter a whole number, nothing with letters included.")
 
-
+if mood_scale >= 8:
+	out += "It's great that you're having such a good day!  It would be a really good idea to reflect back on your day so that this type of day can be repetitive.  "
+elif mood_scale >= 5:
+	out += "It's true, there's a lot of work that needs to be done and this program it's designed to show you that you're doing it.  "
+elif mood_scale >= 1:
+	out += "The systems are built so that we think that we're not doing enough.  You are for sure enough and we're going to get through whatever storm that approaches with God by your side!  "
+elif mood_scale == 0:
+	out += "If you made it this far, know there is still time for things to change.  It all starts from within; let's go!  "
+	
+	
+#Exception handling and output building for time spent reading	
 while True:
     try:
         m_reading = int(input("How many minutes did you spend reading today: "))
@@ -23,15 +38,39 @@ while True:
         if m_reading >= 0:
             break
         else:
-            print("Please enter 0 or a positive whole number.")
+            print("Please enter 0 or a number larger than 0.")
 
     except ValueError:
-        print("Please enter a whole number, nothing with letters included.")
+        print("Please enter a whole number, nothing with letters or characters included.")
         
+if m_reading >= 60:
+        out += "Reading adds value to knowledge.  Understanding virtue will come in due time.  "   
+elif m_reading >= 40:
+        out += "Blessings to you partner.  Keep it up and you'll get there.  But, remember you must always read!  "
+elif m_reading >= 20:
+        out += "You read everyday.  Make sure you give yourself a chance to feel some grace!  "    
+elif m_reading >= 0:
+        out += "When it's difficult for you to read, just play through text to speech.  YOU'RE ONTO SOMETHING AND YOU MUSN'T QUIT!  "
+        
+#Addressing how long coding was done for today.  Doing what i can to practice proper syntax as well as keeping it as simple as possible.  
 while True:
-    m_coding = input("Did you practice coding today: ").lower()
-
-    if m_coding == "yes" or m_coding == "no":
-        break
-    else:
-        print("The question requires a yes or a no response.")
+	try:
+		m_coding = int(input("How many minutes did you code for today: "))
+		if m_coding >= 0:
+			if m_coding > 59:
+				out += "Coding on your cell phone for over an hour is tough stuff.  Make sure you commit your work.  "
+			elif m_coding > 39:
+				out += "Make sure you commit your code work to github.  Making daily commits is highly important!  "
+			elif m_coding > 19:
+				out += "Running into syntax errors and code development complications is regular.  Don't let it deter you from the mission.  Keep going!"
+			elif m_coding >= 0:
+				out += "Bare minimum is a thing...don't let it be your thing.  If you made it this far then you're geared to code.  Go code!  "
+			break
+			
+		else:
+			print("Please enter a numerical value greater than or equal to 0(zero)")
+	except ValueError:
+		print("A number of zero or above is required.  Please try again!")
+		
+print()        
+print(out)
