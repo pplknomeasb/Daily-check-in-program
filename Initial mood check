@@ -23,7 +23,7 @@ while True:
 if mood_scale >= 8:
 	out += "It's great that you're having such a good day!  It would be a really good idea to reflect back on your day so that this type of day can be repetitive.  "
 elif mood_scale >= 5:
-	out += "It's true, there's a lot of work that needs to be done and this program it's designed to show you that you're doing it.  "
+	out += "It's true, there's a lot of work that needs to be done and this program is designed to show you that you're doing it.  "
 elif mood_scale >= 1:
 	out += "The systems are built so that we think that we're not doing enough.  You are for sure enough and we're going to get through whatever storm that approaches with God by your side!  "
 elif mood_scale == 0:
@@ -62,7 +62,7 @@ while True:
 			elif m_coding > 39:
 				out += "Make sure you commit your code work to github.  Making daily commits is highly important!  "
 			elif m_coding > 19:
-				out += "Running into syntax errors and code development complications is regular.  Don't let it deter you from the mission.  Keep going!"
+				out += "Running into syntax errors and code development complications is regular.  Don't let it deter you from the mission.  Keep going!  "
 			elif m_coding >= 0:
 				out += "Bare minimum is a thing...don't let it be your thing.  If you made it this far then you're geared to code.  Go code!  "
 			break
@@ -71,6 +71,55 @@ while True:
 			print("Please enter a numerical value greater than or equal to 0(zero)")
 	except ValueError:
 		print("A number of zero or above is required.  Please try again!")
+
+
+#adressing if spanish was practiced today
+while True:
+	spanish = input("Did you practice speaking spanish today(yes or no): ").lower()
+	if spanish == "yes":
+		out += "Muy Bien Amigo!  Daily spanish practice will certainly help you understand the language better!  "
+		break
+	elif spanish == "no":
+		out += "See if you can spare a moment to practice some spanish.  Practice makes perfect.  "
+		break
+	else:
+		print("You can only answer with a yes or a no.")
 		
-print()        
+#addressing if there was daily exercise
+while True:
+	exercise = input("Did You exercise today(yes or no): ").lower()
+	if exercise == "yes":
+		out += "Good job on getting in some exercise today!!!  "
+		break
+	elif exercise == "no":
+		out += "Get some exercise in.  It's literally feel goods.  "
+		break
+	else:
+		print("You can only answer with a yes or a no.")
+
+#adding validation to if work applications were submitted today
+decision = True		
+while decision == True:
+	try:
+		apps_applied = int(input("How many apps did You submit today: "))
+		if apps_applied >= 5:
+			out += "Applying to that many organizations in a given day Is difficult in and of itself.  Make sure you take notes to do follow-ups.  "
+			decision = False
+		elif apps_applied >= 3:
+			out += "Make sure you take notes to do follow-ups on the applications submitted.  "
+			decision = False
+		elif apps_applied >= 1:
+			out += "See if you could put some more time towards putting in applications. What you've done is more than nothing, however one more won't hurt none.  "
+			decision = False
+		elif apps_applied == 0:
+			out += "If You're not up to applying for work today, follow up with the applications that you've already put in.  You're doing a lot and you don't have a manager.  "
+			decision = False
+		else:
+			print("You've got to use a number of zero or greater.")
+			
+	except ValueError:
+			print("You have to enter a number value for this to work. Please try again.")
+			
+print()
+print("We get it.  Something happened over time that you felt the need to do a project to give yourself a credible place to check-in.  Check in with people again buddy.  They love you...they really really love you...")        
 print(out)
