@@ -121,5 +121,6 @@ while decision == True:
 			print("You have to enter a number value for this to work. Please try again.")
 			
 print()
-print("We get it.  Something happened over time that you felt the need to do a project to give yourself a credible place to check-in.  Check in with people again buddy.  They love you...they really really love you...")        
 print(out)
+print()
+print("We get it.  Something happened over time that you felt the need to do a project to give yourself a credible place to check-in.  Check in with people again buddy.  They love you...they really really love you...")        
